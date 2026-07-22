@@ -3,95 +3,101 @@
 // ============================================================
 export const siteConfig = {
   business: {
-    name: "Pizzería El Gordo",
+    name: "La Pinzeria",
     logo: "/images/logo.png",
-    phone: "+34622596197",
-    whatsapp: "34622596197",
+    phone: "+34951157975",
+    whatsapp: "34951157975",
   },
   address: {
-    street: "Avenida Los Canos, Local 4",
-    city: "Guadiaro",
-    region: "Cádiz",
-    postalCode: "11311",
+    street: "Edif. Coronado, C. Cta. Correa, s/n",
+    city: "Marbella",
+    region: "Málaga",
+    postalCode: "29604",
     country: "ES",
-    mapsQuery: "Pizzeria+el+Gordo+Guadiaro",
-    mapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6431.149110148677!2d-5.309121006420889!3d36.29837159999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0cc58f7d561061%3A0xa9bae44a62761dce!2sPizzeria%20el%20Gordo!5e0!3m2!1sen!2ses!4v1783960213284!5m2!1sen!2ses",
+    mapsQuery: "La+Pinzeria+Pinza+romana+%26+Vinos+Elviria+Marbella",
+    mapsEmbedUrl: "https://www.google.com/maps?q=La+Pinzeria+Pinza+romana+%26+Vinos,+Edif.+Coronado,+C.+Cta.+Correa,+s%2Fn,+29604+Marbella,+Malaga&output=embed",
   },
   hours: {
-    openHour: 19,
-    closeHour: 23,
-    closedDays: [2], // 0=domingo ... 2=martes
+    schedule: {
+      0: null,
+      1: { openHour: 18, closeHour: 23 },
+      2: { openHour: 18, closeHour: 22 },
+      3: { openHour: 17, closeHour: 23 },
+      4: { openHour: 18, closeHour: 23 },
+      5: { openHour: 18, closeHour: 23 },
+      6: { openHour: 18, closeHour: 23 },
+    },
     display: {
-      es: "Todos los días · 19:00–23:00",
-      en: "Every day · 7:00pm–11:00pm",
+      es: "Lun 18:00-23:00 · Mar 18:00-22:00 · Mié 17:00-23:00 · Jue-Sáb 18:00-23:00 · Dom cerrado",
+      en: "Mon 6:00pm-11:00pm · Tue 6:00pm-10:00pm · Wed 5:00pm-11:00pm · Thu-Sat 6:00pm-11:00pm · Sun closed",
     },
     closedDayLabel: {
-      es: "Martes",
-      en: "Tuesday",
+      es: "Domingo",
+      en: "Sunday",
     },
   },
   rating: {
-    value: "4.9",
-    count: "16",
+    value: "4.6",
+    count: "47",
   },
   hero: {
     image: "/images/hero-pizza.jpg",
     imageAlt: {
-      es: "Pizza recién horneada",
-      en: "Freshly baked pizza",
+      es: "Pinza romana recién horneada",
+      en: "Freshly baked Roman pinza",
     },
   },
   seo: {
-    titleSuffix: "Guadiaro — Pizza al Horno, Reparto y Recogida",
+    titleSuffix: "Elviria, Marbella - Pinza Romana, Pasta y Ensaladas",
   },
   reviews: [
     {
       stars: 5,
       text: {
-        es: "La mejor pizza para llevar de la zona, y encima reparten rapidísimo. El equipo es un encanto.",
-        en: "The best takeaway pizza in the area, and they deliver super fast. The team is lovely.",
+        es: "Soy turista en Marbella y pedimos varias pizzas al hotel. Estaban espectaculares y el servicio de entrega fue excelente.",
+        en: "I was visiting Marbella and ordered several pizzas to our hotel. They were stunning and the delivery service was excellent.",
       },
-      author: "Natalie P., Local Guide",
+      author: "TheMothergoose3459",
     },
     {
       stars: 5,
       text: {
-        es: "Pizzas de una calidad excelente, servicio rápido y amable — y el calzone es espectacular.",
-        en: "Excellent quality pizzas, fast and friendly service — and the calzone is spectacular.",
+        es: "Pedimos por Just Eat y llegó rapidísimo. De las mejores pizzas que hemos probado, se nota que son caseras.",
+        en: "Ordered on Just Eat and it came very fast. One of the nicest pizzas I've had, definitely homemade.",
       },
-      author: "José Antonio T.",
+      author: "Ashleigh Overton",
     },
     {
       stars: 5,
       text: {
-        es: "Una pizza napolitana impresionante. Sencillamente la mejor de toda la zona de Guadiaro.",
-        en: "An impressive Neapolitan pizza. Simply the best in the whole Guadiaro area.",
+        es: "Perfecto para picar algo por la tarde con una copa de vino. La pizza estaba increíble.",
+        en: "Perfect for an evening bite and a glass of wine. The pizza was amazing.",
       },
-      author: "Kristina M., Local Guide",
+      author: "Chad Thomason",
     },
     {
       stars: 5,
       text: {
-        es: "Siempre deliciosa y casera. El trato no puede ser más atento y cercano.",
-        en: "Always delicious and homemade. The service couldn't be more attentive.",
+        es: "Pizzas fantásticas, ligeras y crujientes, con mucha variedad. El equipo fue súper amable y atento.",
+        en: "Fantastic pizzas, really light and crispy, with a large variety. The staff were incredibly friendly and attentive.",
       },
-      author: "Oliver M.",
+      author: "Chris Winks",
     },
     {
       stars: 5,
       text: {
-        es: "Comida excelente, muy recomendable — volvemos siempre que podemos.",
-        en: "Excellent food, highly recommended — we come back whenever we can.",
+        es: "Gran pizza y personal increíble. Te hacen sentir como en casa, muy recomendable para pasar un buen rato.",
+        en: "Great pizza and amazing staff. They are super welcoming and make you feel at home.",
       },
-      author: "Samuel B., Local Guide",
+      author: "Jane Jean Miranda",
     },
     {
       stars: 5,
       text: {
-        es: "Venimos desde Sevilla y siempre pedimos aquí en Torreguadiaro — la masa es de otro nivel.",
-        en: "We come from Seville and always order here in Torreguadiaro — the dough is next level.",
+        es: "Una propuesta simple y muy bien ejecutada: mejor hacer una cosa excelente que muchas mediocres.",
+        en: "It's a simple setup done very well. Better to do one thing great than a hundred things mediocre.",
       },
-      author: "Estefanía Z.",
+      author: "Dr. Kenneth Berry",
     },
   ],
 } as const;

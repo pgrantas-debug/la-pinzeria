@@ -11,6 +11,27 @@ const { lang, title } = Astro.props;
 const pageTitle = title
   ? `${title} | ${siteConfig.business.name}`
   : `${siteConfig.business.name} | ${siteConfig.seo.titleSuffix}`;
+
+const openingHoursSpecification = [
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Thursday", "Friday", "Saturday"],
+    opens: "18:00",
+    closes: "23:00",
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Tuesday"],
+    opens: "18:00",
+    closes: "22:00",
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Wednesday"],
+    opens: "17:00",
+    closes: "23:00",
+  },
+];
 ---
 
 <!DOCTYPE html>
@@ -23,7 +44,7 @@ const pageTitle = title
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Syne:wght@500;700;800&display=swap"
       rel="stylesheet"
     />
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -47,12 +68,7 @@ const pageTitle = title
         ratingValue: siteConfig.rating.value,
         reviewCount: siteConfig.rating.count,
       },
-      openingHoursSpecification: [{
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday"],
-        opens: "19:00",
-        closes: "23:00",
-      }],
+      openingHoursSpecification,
     })} />
     <slot name="head" />
   </head>
@@ -63,19 +79,19 @@ const pageTitle = title
 
 <style is:global>
   :root {
-    --ink: #141414;
-    --orange: #ea5b2f;
-    --orange-deep: #c7431c;
-    --cream: #fbf7f0;
+    --ink: #171717;
+    --orange: #cb1f2e;
+    --orange-deep: #8d1620;
+    --cream: #f8f2e8;
     --paper: #ffffff;
-    --green: #4c7a3d;
-    --gold: #f0a63a;
-    --line-soft: #e7dfd0;
+    --green: #117a3f;
+    --gold: #d8ab46;
+    --line-soft: #e9dcc6;
     --shadow-sm: 4px 4px 0 var(--ink);
     --shadow-lg: 7px 7px 0 var(--ink);
-    --f-head: 'Poppins', system-ui, sans-serif;
-    --f-body: 'Inter', system-ui, sans-serif;
-    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --f-head: 'Syne', system-ui, sans-serif;
+    --f-body: 'Manrope', system-ui, sans-serif;
+    --f-mono: 'Space Mono', ui-monospace, monospace;
   }
 
   * { box-sizing: border-box; }
@@ -129,7 +145,7 @@ const pageTitle = title
   .btn-white { background: var(--paper); color: var(--ink); }
   .btn-ink { background: var(--ink); color: var(--cream); }
 
-  .nav { position: sticky; top: 0; z-index: 300; background: rgba(251, 247, 240, 0.92); backdrop-filter: blur(8px); border-bottom: 2px solid var(--ink); }
+  .nav { position: sticky; top: 0; z-index: 300; background: rgba(248, 242, 232, 0.92); backdrop-filter: blur(8px); border-bottom: 2px solid var(--ink); }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; gap: 20px; }
   .brand-mark { display: flex; align-items: center; gap: 10px; }
   .brand-mark img { height: 70px; width: auto; }

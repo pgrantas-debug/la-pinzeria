@@ -27,7 +27,7 @@ const fullAddress = `${siteConfig.address.street}, ${siteConfig.address.postalCo
     <div class="map-box reveal">
       <div class="map-shell">
         <iframe
-          title="Google Maps for Pizzeria El Gordo"
+          title={`Google Maps for ${siteConfig.business.name}`}
           src={siteConfig.address.mapsEmbedUrl}
           class="map-iframe"
           loading="lazy"

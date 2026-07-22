@@ -1,6 +1,7 @@
 ---
 import { useTranslations, type Lang } from "../i18n/translations";
 import { MENU } from "../config/menu.data";
+import { siteConfig } from "../config/site.config";
 import { withBase } from "../config/paths";
 
 interface Props {
@@ -9,8 +10,8 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const featured = MENU.filter((i) => i.featured && i.img);
-const categories = ["Bruschetta", "Pizzas", "Especiales"] as const;
+const featured = MENU.filter((i) => i.featured).slice(0, 4);
+const categories = ["Pizzas", "Pastas", "Ensaladas", "Extras"] as const;
 ---
 
 <section class="menu-section" id="menu">
@@ -25,7 +26,7 @@ const categories = ["Bruschetta", "Pizzas", "Especiales"] as const;
       {featured.map((item) => (
         <div class="dish reveal">
           <div class="dish-img">
-            <img src={withBase(item.img!)} alt={item.name} />
+            <img src={withBase(item.img ?? siteConfig.hero.image)} alt={item.name} />
             {item.veg && <span class="dish-tag">{t.menu.vegDish}</span>}
           </div>
           <div class="dish-body">
@@ -50,9 +51,9 @@ const categories = ["Bruschetta", "Pizzas", "Especiales"] as const;
       </div>
       <div class="tab-row" id="tabRow">
         <button class="tab-btn active" data-cat="Todas">{t.menu.tabs.Todas}</button>
-        <button class="tab-btn" data-cat="Bruschetta">{t.menu.tabs.Bruschetta}</button>
-        <button class="tab-btn" data-cat="Pizzas">{t.menu.tabs.Pizzas}</button>
-        <button class="tab-btn" data-cat="Especiales">{t.menu.tabs.Especiales}</button>
+        {categories.map((cat) => (
+          <button class="tab-btn" data-cat={cat}>{t.menu.tabs[cat]}</button>
+        ))}
       </div>
       <div class="diet-row">
         <button class="diet-btn" id="dietVeg">{t.menu.vegLabel}</button>

@@ -145,7 +145,7 @@ function sendOrderSms() {
     return;
   }
   
-  let text = `NUEVO PEDIDO - EL GORDO\n\n${i18n.whatsappType}: ${typeLabel}\n\n`;
+  let text = `${i18n.whatsappHeader}\n\n${i18n.whatsappType}: ${typeLabel}\n\n`;
   let total = 0;
   cart.forEach((i) => {
     text += `- ${i.name} (x${i.qty}) - ${(i.price * i.qty).toFixed(2)}€\n`;
