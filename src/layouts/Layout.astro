@@ -225,6 +225,29 @@ const openingHoursSpecification = [
   .dish-price { font-family: var(--f-mono); font-weight: 700; color: var(--orange-deep); font-size: 1rem; }
   .mini-add { background: var(--ink); color: #fff; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
   .mini-add:hover { background: var(--orange); }
+  .mini-add.in-cart {
+    background: var(--green);
+    position: relative;
+    box-shadow: inset 0 0 0 2px #fff;
+  }
+  .mini-add.in-cart::after {
+    content: attr(data-qty);
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    font-family: var(--f-mono);
+    font-size: 0.56rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid var(--paper);
+  }
   .menu-controls { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 30px; position: sticky; top: 66px; background: var(--cream); padding: 14px 0; z-index: 50; border-bottom: 2px solid var(--ink); }
   .search-box { flex: 1; min-width: 220px; display: flex; align-items: center; gap: 8px; background: var(--paper); border: 2px solid var(--ink); border-radius: 100px; padding: 10px 18px; }
   .search-box input { border: none; background: none; outline: none; font-family: var(--f-body); font-size: 0.92rem; width: 100%; color: var(--ink); }
@@ -301,6 +324,38 @@ const openingHoursSpecification = [
   .tabbar svg { width: 20px; height: 20px; }
   .tab-cart-badge { position: absolute; top: -2px; right: 2px; background: var(--orange); color: #fff; border-radius: 50%; width: 15px; height: 15px; font-size: 0.55rem; display: flex; align-items: center; justify-content: center; }
 
+  .mobile-cart-cta {
+    display: none;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 78px;
+    z-index: 401;
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fff 0%, #f7f2e6 100%);
+    color: var(--ink);
+    padding: 10px 14px;
+    box-shadow: var(--shadow-sm);
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: var(--f-mono);
+    cursor: pointer;
+  }
+  .mobile-cart-cta b {
+    font-size: 0.76rem;
+    color: var(--orange-deep);
+  }
+  .mobile-cart-cta span {
+    font-size: 0.68rem;
+    font-weight: 700;
+  }
+  .mobile-cart-cta.has-items {
+    background: linear-gradient(135deg, #fff 0%, #eaf7ef 100%);
+  }
+
   .overlay { position: fixed; inset: 0; background: rgba(20, 20, 20, .55); z-index: 900; opacity: 0; pointer-events: none; transition: opacity .25s ease; }
   .overlay.open { opacity: 1; pointer-events: auto; }
   .sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 901; background: var(--paper); border-top: 3px solid var(--ink); border-radius: 24px 24px 0 0; max-height: 82vh; display: flex; flex-direction: column; transform: translateY(100%); transition: transform .35s cubic-bezier(.25,.8,.25,1); max-width: 520px; margin: 0 auto; box-shadow: 0 -10px 40px rgba(0,0,0,.25); }
@@ -354,7 +409,8 @@ const openingHoursSpecification = [
     .review-grid { grid-template-columns: 1fr; }
     .featured-grid { grid-template-columns: 1fr 1fr; }
     .tabbar { display: flex; }
-    body { padding-bottom: 70px; }
+    .mobile-cart-cta { display: flex; }
+    body { padding-bottom: 136px; }
     .menu-controls { top: 58px; }
   }
 </style>

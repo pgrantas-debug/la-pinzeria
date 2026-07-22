@@ -103,6 +103,8 @@ export const translations = {
     },
     cart: {
       title: "Tu pedido",
+      openCart: "Abrir carrito",
+      itemsLabel: "items",
       pickup: "🥡 Recogida",
       delivery: "🛵 Domicilio",
       empty: "Aún no has añadido ninguna pizza.",
@@ -213,6 +215,8 @@ export const translations = {
     },
     cart: {
       title: "Your order",
+      openCart: "Open cart",
+      itemsLabel: "items",
       pickup: "🥡 Pickup",
       delivery: "🛵 Delivery",
       empty: "You haven't added any pizza yet.",

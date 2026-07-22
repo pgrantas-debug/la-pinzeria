@@ -18,6 +18,8 @@ interface CartI18n {
   whatsappTotal: string;
   whatsappNote: string;
   whatsappAddress: string;
+  openCart: string;
+  itemsLabel: string;
   pickupLabel: string;
   deliveryLabel: string;
   sendSms: string;
@@ -37,9 +39,32 @@ function getI18n(): CartI18n {
   return window.__cartI18n;
 }
 
+function syncAddButtons() {
+  const qtyByName = new Map<string, number>();
+  cart.forEach((item) => {
+    qtyByName.set(item.name, (qtyByName.get(item.name) ?? 0) + item.qty);
+  });
+
+  document.querySelectorAll<HTMLElement>(".mini-add").forEach((btn) => {
+    const name = btn.dataset.name;
+    if (!name) return;
+    const qty = qtyByName.get(name) ?? 0;
+    const isInCart = qty > 0;
+    btn.classList.toggle("in-cart", isInCart);
+    if (isInCart) {
+      btn.setAttribute("data-qty", String(qty));
+      btn.textContent = "✓";
+    } else {
+      btn.removeAttribute("data-qty");
+      btn.textContent = "+";
+    }
+  });
+}
+
 function renderCart() {
   const i18n = getI18n();
   const count = cart.reduce((s, i) => s + i.qty, 0);
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const navCount = document.getElementById("cartCountNav");
   if (navCount) navCount.innerText = String(count);
   const tabBadge = document.getElementById("tabCartBadge");
@@ -47,18 +72,30 @@ function renderCart() {
     tabBadge.innerText = String(count);
     tabBadge.style.display = count > 0 ? "flex" : "none";
   }
+  const mobileCta = document.getElementById("openSheetMobile");
+  if (mobileCta) {
+    mobileCta.innerHTML = `<span>${i18n.openCart}</span><b>${count} ${i18n.itemsLabel}</b><span>${total.toFixed(2)}€</span>`;
+    mobileCta.classList.toggle("has-items", count > 0);
+  }
+
   const body = document.getElementById("sheetItems");
   const totalEl = document.getElementById("sheetTotal");
-  if (!body || !totalEl) return;
+  if (!body || !totalEl) {
+    syncAddButtons();
+    return;
+  }
+
   if (cart.length === 0) {
     body.innerHTML = `<p class="sheet-empty">${i18n.emptyText}</p>`;
     totalEl.innerText = "0,00€";
+    syncAddButtons();
     return;
   }
-  let total = 0;
+
+  let runningTotal = 0;
   body.innerHTML = cart
     .map((item, index) => {
-      total += item.price * item.qty;
+      runningTotal += item.price * item.qty;
       return `
         <div class="sheet-item" data-index="${index}">
           <div class="si-info">
@@ -71,7 +108,8 @@ function renderCart() {
         </div>`;
     })
     .join("");
-  totalEl.innerText = total.toFixed(2) + "€";
+  totalEl.innerText = runningTotal.toFixed(2) + "€";
+  syncAddButtons();
 }
 
 function removeItem(index: number) {
@@ -180,7 +218,7 @@ export function initCart() {
       return;
     }
   });
-  ["openSheetNav", "openSheetHero", "openSheetTab"].forEach((id) => {
+  ["openSheetNav", "openSheetHero", "openSheetTab", "openSheetMobile"].forEach((id) => {
     document.getElementById(id)?.addEventListener("click", openSheet);
   });
   document.getElementById("sheetClose")?.addEventListener("click", closeSheet);
