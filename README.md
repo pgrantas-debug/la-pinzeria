@@ -1,43 +1,81 @@
-# Astro Starter Kit: Minimal
+# La Pinzeria Website
 
-```sh
-npm create astro@latest -- --template minimal
+Astro website for La Pinzeria (Elviria, Marbella), with bilingual content (ES/EN), menu filtering, and WhatsApp/SMS order flow.
+
+## Tech Stack
+
+- Astro
+- TypeScript
+- Plain CSS (global styles in layout)
+
+## Local Development
+
+Run from project root:
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+Local URL:
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+http://localhost:4321
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Build for production:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+npm run build
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+Preview production build:
 
-## 🧞 Commands
+```bash
+npm run preview
+```
 
-All commands are run from the root of the project, from a terminal:
+## Main Content Files
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Brand/contact/hours/reviews config: `src/config/site.config.ts`
+- Menu data: `src/config/menu.data.ts`
+- Translations ES/EN: `src/i18n/translations.ts`
+- Global layout and CSS: `src/layouts/Layout.astro`
 
-## 👀 Want to learn more?
+## GitHub Pages Deploy
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Deploy is handled by GitHub Actions workflow:
+
+- Workflow file: `.github/workflows/deploy.yml`
+- Astro base/site config: `astro.config.mjs`
+
+### Important
+
+This project computes the Pages base path from `GITHUB_REPOSITORY` during GitHub Actions build.
+That prevents stale paths after repository rename.
+
+## Deploy Checklist (After Repo Rename)
+
+1. Confirm `origin` points to the correct repo:
+
+```bash
+git remote -v
+```
+
+2. Confirm `astro.config.mjs` uses dynamic base from `GITHUB_REPOSITORY`.
+
+3. Push to `main`:
+
+```bash
+git push origin main
+```
+
+4. Wait for GitHub Actions `Deploy to GitHub Pages` to finish green.
+
+5. Open Pages URL and hard refresh (`Ctrl+F5`):
+
+```text
+https://pgrantas-debug.github.io/la-pinzeria/
+```
+
+6. If styles look broken, check browser Network tab for `404` on `/_astro/` assets and verify base path in generated HTML.
