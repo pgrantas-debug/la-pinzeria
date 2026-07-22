@@ -147,8 +147,31 @@ const openingHoursSpecification = [
 
   .nav { position: sticky; top: 0; z-index: 300; background: rgba(248, 242, 232, 0.92); backdrop-filter: blur(8px); border-bottom: 2px solid var(--ink); }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; gap: 20px; }
-  .brand-mark { display: flex; align-items: center; gap: 10px; }
-  .brand-mark img { height: 96px; width: auto; }
+  .brand-mark { display: flex; align-items: center; gap: 12px; min-width: 210px; }
+  .brand-logo-shell {
+    width: 128px;
+    height: 56px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .brand-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(2.25);
+    transform-origin: left center;
+  }
+  .brand-name {
+    font-family: var(--f-head);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--ink);
+    white-space: nowrap;
+  }
   .status-pill { display: inline-flex; align-items: center; gap: 7px; font-family: var(--f-mono); font-size: 0.72rem; font-weight: 700; padding: 6px 12px; border-radius: 100px; border: 1.5px solid var(--ink); background: var(--paper); white-space: nowrap; }
   .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
   .status-pill.closed .status-dot { background: #c0392b; }
@@ -331,7 +354,10 @@ const openingHoursSpecification = [
   }
 
   @media (max-width: 760px) {
-    .brand-mark img { height: 76px; }
+    .brand-mark { min-width: 0; gap: 8px; }
+    .brand-logo-shell { width: 94px; height: 44px; }
+    .brand-mark img { transform: scale(2.05); }
+    .brand-name { font-size: 0.82rem; }
     .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); flex-direction: column; align-items: flex-start; padding: 20px 24px; border-bottom: 2px solid var(--ink); display: flex; gap: 16px; z-index: 250; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px); transition: opacity .22s ease, transform .22s ease, visibility .22s linear; box-shadow: var(--shadow-sm); }
     .nav-links.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
     .nav-toggle { display: block; }
