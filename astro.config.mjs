@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
-const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? 'la-pizeria';
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? 'la-pinzeria';
 
 // https://astro.build/config
 export default defineConfig({
