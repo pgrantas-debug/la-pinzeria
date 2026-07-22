@@ -324,38 +324,6 @@ const openingHoursSpecification = [
   .tabbar svg { width: 20px; height: 20px; }
   .tab-cart-badge { position: absolute; top: -2px; right: 2px; background: var(--orange); color: #fff; border-radius: 50%; width: 15px; height: 15px; font-size: 0.55rem; display: flex; align-items: center; justify-content: center; }
 
-  .mobile-cart-cta {
-    display: none;
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    bottom: 78px;
-    z-index: 401;
-    border: 2px solid var(--ink);
-    border-radius: 16px;
-    background: linear-gradient(135deg, #fff 0%, #f7f2e6 100%);
-    color: var(--ink);
-    padding: 10px 14px;
-    box-shadow: var(--shadow-sm);
-    display: none;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    font-family: var(--f-mono);
-    cursor: pointer;
-  }
-  .mobile-cart-cta b {
-    font-size: 0.76rem;
-    color: var(--orange-deep);
-  }
-  .mobile-cart-cta span {
-    font-size: 0.68rem;
-    font-weight: 700;
-  }
-  .mobile-cart-cta.has-items {
-    background: linear-gradient(135deg, #fff 0%, #eaf7ef 100%);
-  }
-
   .overlay { position: fixed; inset: 0; background: rgba(20, 20, 20, .55); z-index: 900; opacity: 0; pointer-events: none; transition: opacity .25s ease; }
   .overlay.open { opacity: 1; pointer-events: auto; }
   .sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 901; background: var(--paper); border-top: 3px solid var(--ink); border-radius: 24px 24px 0 0; max-height: 82vh; display: flex; flex-direction: column; transform: translateY(100%); transition: transform .35s cubic-bezier(.25,.8,.25,1); max-width: 520px; margin: 0 auto; box-shadow: 0 -10px 40px rgba(0,0,0,.25); }
@@ -404,13 +372,12 @@ const openingHoursSpecification = [
     .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); flex-direction: column; align-items: flex-start; padding: 20px 24px; border-bottom: 2px solid var(--ink); display: flex; gap: 16px; z-index: 250; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px); transition: opacity .22s ease, transform .22s ease, visibility .22s linear; box-shadow: var(--shadow-sm); }
     .nav-links.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
     .nav-toggle { display: block; }
-    .order-btn span.label { display: none; }
+    .order-btn { padding: 9px 14px; font-size: 0.76rem; }
     .menu-list { grid-template-columns: 1fr; }
     .review-grid { grid-template-columns: 1fr; }
     .featured-grid { grid-template-columns: 1fr 1fr; }
     .tabbar { display: flex; }
-    .mobile-cart-cta { display: flex; }
-    body { padding-bottom: 136px; }
+    body { padding-bottom: 70px; }
     .menu-controls { top: 58px; }
   }
 </style>

@@ -18,8 +18,6 @@ interface CartI18n {
   whatsappTotal: string;
   whatsappNote: string;
   whatsappAddress: string;
-  openCart: string;
-  itemsLabel: string;
   pickupLabel: string;
   deliveryLabel: string;
   sendSms: string;
@@ -71,11 +69,6 @@ function renderCart() {
   if (tabBadge) {
     tabBadge.innerText = String(count);
     tabBadge.style.display = count > 0 ? "flex" : "none";
-  }
-  const mobileCta = document.getElementById("openSheetMobile");
-  if (mobileCta) {
-    mobileCta.innerHTML = `<span>${i18n.openCart}</span><b>${count} ${i18n.itemsLabel}</b><span>${total.toFixed(2)}€</span>`;
-    mobileCta.classList.toggle("has-items", count > 0);
   }
 
   const body = document.getElementById("sheetItems");
@@ -218,7 +211,7 @@ export function initCart() {
       return;
     }
   });
-  ["openSheetNav", "openSheetHero", "openSheetTab", "openSheetMobile"].forEach((id) => {
+  ["openSheetNav", "openSheetHero", "openSheetTab"].forEach((id) => {
     document.getElementById(id)?.addEventListener("click", openSheet);
   });
   document.getElementById("sheetClose")?.addEventListener("click", closeSheet);

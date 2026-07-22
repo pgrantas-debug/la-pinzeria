@@ -10,11 +10,6 @@ const t = useTranslations(lang);
 ---
 
 <div class="overlay" id="overlay"></div>
-<button class="mobile-cart-cta" id="openSheetMobile" type="button" aria-label={t.cart.openCart}>
-  <span>{t.cart.openCart}</span>
-  <b>0 {t.cart.itemsLabel}</b>
-  <span>0,00€</span>
-</button>
 <div class="sheet" id="sheet">
   <div class="sheet-handle"></div>
   <div class="sheet-head">
@@ -47,8 +42,6 @@ const t = useTranslations(lang);
   whatsappTotal: t.cart.whatsappTotal,
   whatsappNote: t.cart.whatsappNote,
   whatsappAddress: t.cart.whatsappAddress,
-  openCart: t.cart.openCart,
-  itemsLabel: t.cart.itemsLabel,
   pickupLabel: t.cart.pickup,
   deliveryLabel: t.cart.delivery,
   sendSms: t.cart.sendSms,
@@ -63,8 +56,6 @@ const t = useTranslations(lang);
     whatsappTotal,
     whatsappNote,
     whatsappAddress,
-    openCart,
-    itemsLabel,
     pickupLabel,
     deliveryLabel,
     sendSms,
