@@ -44,7 +44,7 @@ const openingHoursSpecification = [
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Syne:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -89,7 +89,7 @@ const openingHoursSpecification = [
     --line-soft: #e9dcc6;
     --shadow-sm: 4px 4px 0 var(--ink);
     --shadow-lg: 7px 7px 0 var(--ink);
-    --f-head: 'Syne', system-ui, sans-serif;
+    --f-head: 'Montserrat', system-ui, sans-serif;
     --f-body: 'Manrope', system-ui, sans-serif;
     --f-mono: 'Space Mono', ui-monospace, monospace;
   }
@@ -148,7 +148,7 @@ const openingHoursSpecification = [
   .nav { position: sticky; top: 0; z-index: 300; background: rgba(248, 242, 232, 0.92); backdrop-filter: blur(8px); border-bottom: 2px solid var(--ink); }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; gap: 20px; }
   .brand-mark { display: flex; align-items: center; gap: 10px; }
-  .brand-mark img { height: 70px; width: auto; }
+  .brand-mark img { height: 96px; width: auto; }
   .status-pill { display: inline-flex; align-items: center; gap: 7px; font-family: var(--f-mono); font-size: 0.72rem; font-weight: 700; padding: 6px 12px; border-radius: 100px; border: 1.5px solid var(--ink); background: var(--paper); white-space: nowrap; }
   .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
   .status-pill.closed .status-dot { background: #c0392b; }
@@ -331,6 +331,7 @@ const openingHoursSpecification = [
   }
 
   @media (max-width: 760px) {
+    .brand-mark img { height: 76px; }
     .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); flex-direction: column; align-items: flex-start; padding: 20px 24px; border-bottom: 2px solid var(--ink); display: flex; gap: 16px; z-index: 250; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px); transition: opacity .22s ease, transform .22s ease, visibility .22s linear; box-shadow: var(--shadow-sm); }
     .nav-links.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
     .nav-toggle { display: block; }
