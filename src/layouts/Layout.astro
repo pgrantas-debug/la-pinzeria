@@ -149,19 +149,17 @@ const openingHoursSpecification = [
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; gap: 20px; }
   .brand-mark { display: flex; align-items: center; min-width: 0; }
   .brand-logo-shell {
-    width: 246px;
-    height: 64px;
-    overflow: hidden;
+    width: auto;
+    height: 62px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
   }
   .brand-mark img {
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: contain;
-    transform: scale(1.7);
-    transform-origin: left center;
+    transform: none;
   }
   .status-pill { display: inline-flex; align-items: center; gap: 7px; font-family: var(--f-mono); font-size: 0.72rem; font-weight: 700; padding: 6px 12px; border-radius: 100px; border: 1.5px solid var(--ink); background: var(--paper); white-space: nowrap; }
   .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
@@ -346,8 +344,8 @@ const openingHoursSpecification = [
 
   @media (max-width: 760px) {
     .brand-mark { min-width: 0; }
-    .brand-logo-shell { width: 192px; height: 50px; }
-    .brand-mark img { transform: scale(1.42); }
+    .brand-logo-shell { width: auto; height: 56px; }
+    .brand-mark img { transform: none; }
     .nav-links { position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); flex-direction: column; align-items: flex-start; padding: 20px 24px; border-bottom: 2px solid var(--ink); display: flex; gap: 16px; z-index: 250; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px); transition: opacity .22s ease, transform .22s ease, visibility .22s linear; box-shadow: var(--shadow-sm); }
     .nav-links.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
     .nav-toggle { display: block; }
